@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getSpot, recordVisit } from '../services/api';
 import Toast from '../components/Toast';
+import AROverlay3D from '../components/AROverlay3D';
 
 const ARMode = () => {
     const { slug } = useParams();
@@ -56,6 +57,7 @@ const ARMode = () => {
     const simulateDetection = () => {
         setMarkerDetected(true);
         setShowOverlay(true);
+        setToast({ message: `🎯 ${spot?.name || 'Spot'} Detected!`, type: 'success' });
     };
 
     const handleVisit = async () => {
@@ -236,6 +238,8 @@ const ARMode = () => {
                 </div>
             )}
 
+            {/* 3D AR Overlay */}
+            {markerDetected && spot && <AROverlay3D spotName={spot.name} />}
             {/* AR Info Overlay (when marker detected) */}
             {showOverlay && spot && (
                 <div

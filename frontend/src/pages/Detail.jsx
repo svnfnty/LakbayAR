@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { getSpot, recordVisit } from '../services/api';
 import { getCurrentPosition, calculateDistance, formatDistance, openNavigation } from '../utils/geolocation';
+import IndoorMapModal from '../components/IndoorMapModal';
 import Toast from '../components/Toast';
 import Footer from '../components/Footer';
 
@@ -22,6 +23,7 @@ const Detail = () => {
     const [distance, setDistance] = useState(null);
     const [toast, setToast] = useState(null);
     const [visiting, setVisiting] = useState(false);
+    const [showIndoorMap, setShowIndoorMap] = useState(false);
 
     useEffect(() => {
         loadSpot();
@@ -228,22 +230,38 @@ const Detail = () => {
                 </div>
 
                 {/* Action Buttons */}
-                <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '12px' }}>
                     <button
-                        className="btn btn-primary"
-                        style={{ flex: '1', minWidth: '200px', padding: '14px 24px' }}
                         onClick={() => openNavigation(spot.latitude, spot.longitude)}
+                        className="btn"
+                        style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.1)', color: 'white' }}
                     >
-                        🧭 Navigate with Google Maps
+                        🗺️ Google Maps
                     </button>
-                    <Link
-                        to={`/ar/${spot.slug}`}
-                        className="btn btn-accent"
-                        style={{ flex: '1', minWidth: '200px', padding: '14px 24px', textAlign: 'center' }}
+                    <button
+                        onClick={() => navigate(`/navigate/${spot.slug}`)}
+                        className="btn"
+                        style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.1)', color: 'white' }}
                     >
-                        📱 Start AR Experience
-                    </Link>
+                        🧭 AR Compass
+                    </button>
                 </div>
+
+                <button
+                    onClick={() => setShowIndoorMap(true)}
+                    className="btn"
+                    style={{ width: '100%', marginBottom: '24px', background: 'rgba(30, 41, 59, 0.8)', color: '#cbd5e1', border: '1px solid rgba(51, 65, 85, 0.5)' }}
+                >
+                    🏢 View Indoor Map
+                </button>
+
+                <Link
+                    to={`/ar/${spot.slug}`}
+                    className="btn btn-primary"
+                    style={{ width: '100%', display: 'block', marginBottom: '24px', padding: '16px', fontSize: '1.1rem', textAlign: 'center', boxShadow: '0 4px 20px rgba(14, 165, 233, 0.4)' }}
+                >
+                    🚀 Start AR Experience
+                </Link>
 
                 <button
                     className="btn btn-ghost"
@@ -256,6 +274,13 @@ const Detail = () => {
             </div>
 
             {toast && <Toast message={toast.message} type={toast.type} onClose={() => setToast(null)} />}
+
+            <IndoorMapModal
+                isOpen={showIndoorMap}
+                onClose={() => setShowIndoorMap(false)}
+                spotName={spot.name}
+            />
+
             <Footer />
         </div>
     );

@@ -4,6 +4,7 @@ import Landing from './pages/Landing';
 import Explore from './pages/Explore';
 import Detail from './pages/Detail';
 import ARMode from './pages/ARMode';
+import NavigationAR from './pages/NavigationAR';
 import Leaderboard from './pages/Leaderboard';
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         {/* AR mode is fullscreen, no navbar */}
         <Route path="/ar/:slug" element={<ARMode />} />
+        <Route path="/navigate/:slug" element={<NavigationAR />} />
 
         {/* All other pages with navbar */}
         <Route
