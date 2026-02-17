@@ -1,11 +1,6 @@
 # 🗺️ LakbayAR — Web-Based AR Tourism Platform
 
-<<<<<<< HEAD
 ![LakbayAR](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhG0ICGMxoLE3kSKJ3AsOiYuxeW88pcAIPuMceoh7uSUCLzX2OI4Ngp5dO9qSsyGz7ecZ_O70qr7Lw4na-P4JpUzPn5sg7EBbT5WxxoVzGJ0hK3abuVo5vLknCbWk6tfcqoRwm8ezVpMkUl9vWConAtYInwq5Ro9Bx2rrXbvu3KxAOI1fDngFsXfg0S/s1169/Gingoog.png)
-=======
-![LakbayAR]([https://images.unsplash.com/photo-1621847468516-1ed5d0df56fe?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhG0ICGMxoLE3kSKJ3AsOiYuxeW88pcAIPuMceoh7uSUCLzX2OI4Ngp5dO9qSsyGz7ecZ_O70qr7Lw4na-P4JpUzPn5sg7EBbT5WxxoVzGJ0hK3abuVo5vLknCbWk6tfcqoRwm8ezVpMkUl9vWConAtYInwq5Ro9Bx2rrXbvu3KxAOI1fDngFsXfg0S/s1169/Gingoog.png))
-
->>>>>>> 790acb75c6b2f80f19a81a41793afdc312e74876
 
 **LakbayAR** is a modern, web-based Augmented Reality (AR) tourism platform designed for **Gingoog City, Misamis Oriental**. It allows tourists to discover local landmarks, view historical information via AR overlays, and earn points through a gamified visitation system — all without installing a native app.
 
